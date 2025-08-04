@@ -1,36 +1,56 @@
 // lib/geminiAdapter.ts
-import { ChatModel, ChatPrompt, ChatResponse } from "@ai-sdk/provider"; // or shape it manually
+
+export type ChatModel = {
+  id: string;
+  name: string;
+  provider: string;
+  generate: (prompt: ChatPrompt) => Promise<ChatResponse>;
+};
+
+export type ChatPrompt = {
+  system: string;
+  messages: { role: "user" | "assistant"; content: string }[];
+};
+
+export type ChatResponse = {
+  content: string;
+  status: "success" | "error";
+};
 
 export const geminiChatAdapter: ChatModel = {
-  async generate(prompt: ChatPrompt): Promise<ChatResponse> {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) throw new Error("GEMINI_API_KEY is missing");
+  id: "gemini-1.5-flash",
+  name: "Gemini 1.5 Flash",
+  provider: "Google",
 
-    const textPrompt = prompt.messages.map((m) => m.content).join("\n");
+  async generate(prompt: ChatPrompt): Promise<ChatResponse> {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) throw new Error("GEMINI_API_KEY is missing");
 
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: textPrompt }] }],
-        }),
-      }
-    );
+    const textPrompt = prompt.messages.map((m) => m.content).join("\n");
 
-    if (!res.ok) {
-      const errorData = await res.text();
-      throw new Error(`Gemini API error: ${res.status} - ${errorData}`);
-    }
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: textPrompt }] }],
+        }),
+      }
+    );
 
-    const data = await res.json();
+    if (!res.ok) {
+      const errorData = await res.text();
+      throw new Error(`Gemini API error: ${res.status} - ${errorData}`);
+    }
 
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "No response";
-    return {
-      text,
-      finishReason: "stop",
-      usage: {},
-    };
-  },
+    const data = await res.json();
+    const responseText =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "No response";
+
+    return {
+      content: responseText,
+      status: "success",
+    };
+  },
 };
