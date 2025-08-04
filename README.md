@@ -1,5 +1,9 @@
 # Codence - AI Code Review Agent
 
+## 🔗 Links
+
+- **Live Demo**: [https://codence-ai.vercel.app/](https://codence-ai.vercel.app/) *(UI preview only)*
+- **Repository**: [https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent](https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent)
 
 
 > ⚠️ **Important Note**: This is a local machine-based AI Code Reviewer.
@@ -131,14 +135,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Priyanshu**
+**Priyanshu Vishwakarma**
 - GitHub: [@priyyannshhu](https://github.com/priyyannshhu)
 - Project Repository: [Codence-Code-Review-AI-Agent](https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent)
-
-## 🔗 Links
-
-- **Live Demo**: [https://codence-ai.vercel.app/](https://codence-ai.vercel.app/) *(UI preview only)*
-- **Repository**: [https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent](https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent)
 
 ## ⚠️ Troubleshooting
 
