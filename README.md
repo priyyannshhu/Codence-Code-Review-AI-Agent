@@ -1,11 +1,5 @@
 # Codence - AI Code Review Agent
 
-## 🔗 Links
-
-- **Live Demo**: [https://codence-ai.vercel.app/](https://codence-ai.vercel.app/) *(UI preview only)*
-- **Repository**: [https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent](https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent)
-
-
 > ⚠️ **Important Note**: This is a local machine-based AI Code Reviewer.
 > 
 > While it's deployed on Vercel for preview, **the live link is for UI demonstration only**. The application won't work as expected in the browser alone since it requires local setup and API credentials.
@@ -18,6 +12,11 @@
 > The Gemini API runs server-side and relies on your local credentials. **This is not a SaaS application.**
 
 A modern, intelligent code review application powered by Google's Gemini AI. Codence provides automated code analysis, suggestions for improvements, and helps maintain code quality standards through AI-powered insights.
+
+## 🔗 Links
+
+- **Live Demo**: [https://codence-ai.vercel.app/](https://codence-ai.vercel.app/) *(UI preview only)*
+- **Repository**: [https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent](https://github.com/priyyannshhu/Codence-Code-Review-AI-Agent)
 
 ## 🚀 Features
 
